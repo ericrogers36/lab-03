@@ -29,10 +29,13 @@ There are `r nrow(nobel)` rows and `r ncol(nobel)` columns, hence there are `r n
 
 
 ```{r nobel-living}
-Nobel_alive <- nobel %>%
+nobel_alive <- nobel %>%
   filter(is.na(country) == FALSE , gender !="org", is.na(died_date) == TRUE)
 
+
 ```
+There are `r nrow(nobel_alive)` hence there are `r nrow(nobel_alive)` observations
+
 
 #### Narrative
 
