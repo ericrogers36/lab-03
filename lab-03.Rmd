@@ -60,7 +60,10 @@ nobel_living_science <- nobel_living %>%
 ggplot(data = nobel_living_science) + 
   geom_bar(
     mapping = aes(y = country_us)) +
-  facet_wrap(~ category)
+  facet_wrap(~ category) + 
+  labs(x = "Number of living Nobel laureates",
+       y = "Country",
+       title = "Living Nobel laureates and the countries they were based in")
 ```
 
 #### Narrative
