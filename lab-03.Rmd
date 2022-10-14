@@ -84,12 +84,22 @@ The visualisation supports Buzzfeed's narrative that most living Nobel laureates
 
 #### Narrative
 
-*Remove this text and add your answer here.*
+The visualisation does not support Buzzfeed's narrative. As shown in diagram, US-based Nobel laureates in all subjects born in other countries are fewer than those were born in the US.
 
 #### Code
 
 ```{r facet-bar-plot-redo}
-# remove this comment and add your code here
+nobel_living_US <- nobel_living_science %>%
+  mutate(
+    born_country = if_else(born_country == "USA", "USA", "Other")
+  )
+ggplot(data = nobel_living_US) + 
+  geom_bar(
+    mapping = aes(y = country_us)) +
+  facet_grid(born_country ~ category) + 
+  labs(x = "Number of living Nobel laureates",
+       y = "Country",
+       title = "Living Nobel laureates and the countries they were based in")
 ```
 
 
