@@ -26,10 +26,12 @@ There are `r nrow(nobel)` rows and `r ncol(nobel)` columns, hence there are `r n
 
 ### Exercise 2
 
-#### Code
+
 
 ```{r nobel-living}
-# remove this comment and add your code here
+Nobel_alive <- nobel %>%
+  filter(is.na(country) == FALSE , gender !="org", is.na(died_date) == TRUE)
+
 ```
 
 #### Narrative
