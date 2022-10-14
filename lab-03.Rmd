@@ -76,10 +76,16 @@ The visualisation supports Buzzfeed's narrative that most living Nobel laureates
 #### Code
 
 ```{r born-country-us}
-# remove this comment and add your code here
+nobel_living_born_country <- nobel_alive %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other")
+  )
+nobel_living_born_country_us <- nobel_living %>% 
+  filter(
+    born_country %in% c("USA")
+    )
 ```
-
-
+There are 105 rows in the "nobel_living_born_country_us". So 105 winners are born in the US.
 ### Exercise 5
 
 #### Narrative
