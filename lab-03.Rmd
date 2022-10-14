@@ -34,12 +34,12 @@ nobel_alive <- nobel %>%
 
 
 ```
-There are `r nrow(nobel_alive)` hence there are `r nrow(nobel_alive)` observations
+
 
 
 #### Narrative
 
-*Remove this text and add your answer here.*
+There are `r nrow(nobel_alive)` rows hence there are `r nrow(nobel_alive)` observations
 
 
 ### Exercise 3
@@ -47,12 +47,25 @@ There are `r nrow(nobel_alive)` hence there are `r nrow(nobel_alive)` observatio
 #### Code
 
 ```{r facet-bar-plot}
-# remove this comment and add your code here
+nobel_living <- nobel_alive %>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other")
+  )
+
+nobel_living_science <- nobel_living %>% 
+  filter(
+    category %in% c("Physics", "Medicine", "Chemistry", "Economics")
+    )
+
+ggplot(data = nobel_living_science) + 
+  geom_bar(
+    mapping = aes(y = country_us)) +
+  facet_wrap(~ category)
 ```
 
 #### Narrative
 
-*Remove this text and add your answer here.*
+The visualisation supports Buzzfeed's narrative that most living Nobel laureates were in the US when they won their prize, as the bar for the US is longer in every STEM category than the bar for laureates outside the US, suggesting many more of the laureates were based in the US. This disparity is greatest in Economics and smallest in Chemistry.
 
 
 ### Exercise 4
