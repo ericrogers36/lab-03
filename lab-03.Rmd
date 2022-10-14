@@ -1,6 +1,6 @@
 ---
 title: "Lab 03 - Nobel laureates"
-author: "eddie, eddie, ryan, eric ryan ryan eric"
+author: "Eric, Ryan, Eddie, Shirley, Chen" 
 date: "`r Sys.Date()`"
 output: html_document
 ---
